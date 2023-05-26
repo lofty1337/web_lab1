@@ -4,13 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82eab0a3-be34-4f72-a4b5-41888c094fe3" name="Changes" comment="" />
+    <list default="true" id="82eab0a3-be34-4f72-a4b5-41888c094fe3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/docker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/docker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/categories/category1/wqeq.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/categories/category1/йцуйцуйцу.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/categories/category2/wqeq13232.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/categories/category3/qweqw.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/files.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/page.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/page1.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/page2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/page3.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/page4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/code/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -18,6 +38,29 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/code/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/code/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/code/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/code/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/code/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/code/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/code/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/code/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/code/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/code/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/code/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/code/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/code/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/code/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/code/vendor/composer" />
+      <path value="$PROJECT_DIR$/code/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/code/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/code/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/code/vendor/ralouphie/getallheaders" />
+    </include_path>
   </component>
   <component name="ProjectId" id="2P0uVN65SjReMe5CjPmEJd41LZP" />
   <component name="ProjectViewState">
@@ -29,13 +72,20 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/mardu/source/repos/docker/code",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "configurable.group.build",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mardu\source\repos\docker\code" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="page.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/code/page.php">
       <method v="2" />
@@ -49,11 +99,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682606343236</updated>
-      <workItem from="1682606345096" duration="4157000" />
+      <workItem from="1682606345096" duration="4435000" />
+      <workItem from="1683308481799" duration="6236000" />
+      <workItem from="1685114182358" duration="34000" />
+      <workItem from="1685114305200" duration="4183000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
