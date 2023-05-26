@@ -10,7 +10,7 @@ session_start();
 function getClient()
 {
     $client = new Client();
-    $client->setApplicationName('Your Application Name');
+    $client->setApplicationName('tablici');
     $client->setScopes([Sheets::SPREADSHEETS]);
     $client->setAuthConfig('credentials.json');
     $client->setAccessType('offline');
