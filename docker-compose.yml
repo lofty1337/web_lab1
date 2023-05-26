@@ -13,3 +13,13 @@ services:
     build: ./
     volumes:
     - ./code:/code
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: mysql:8.0
+    ports:
+      - '6603:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: helloworld

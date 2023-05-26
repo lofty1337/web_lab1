@@ -6,53 +6,48 @@ use Google\Service\Sheets;
 
 session_start();
 
+// Параметры подключения к базе данных
+$host = 'db';
+$dbName = 'web';
+$username = 'root';
+$password = 'helloworld';
 
-function getClient()
-{
-    $client = new Client();
-    $client->setApplicationName('Your Application Name');
-    $client->setScopes([Sheets::SPREADSHEETS]);
-    $client->setAuthConfig('credentials.json');
-    $client->setAccessType('offline');
+try {
+    // Создание подключения к базе данных
+    $db = new PDO("mysql:host=$host;dbname=$dbName", $username, $password);
 
-    return $client;
+    function getClient()
+    {
+        $client = new Client();
+        $client->setApplicationName('tablici');
+        $client->setScopes([Sheets::SPREADSHEETS]);
+        $client->setAuthConfig('credentials.json');
+        $client->setAccessType('offline');
+
+        return $client;
+    }
+
+    $client = getClient();
+    $service = new Sheets($client);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $email = $_POST['email'];
+        $category = $_POST['category'];
+        $title = $_POST['title'];
+        $text = $_POST['text'];
+
+        // Подготовка и выполнение запроса на вставку объявления в базу данных
+        $stmt = $db->prepare('INSERT INTO ad (email, category, title, description) VALUES (?, ?, ?, ?)');
+        $stmt->execute([$email, $category, $title, $text]);
+    }
+
+    // Получение объявлений из базы данных
+    $stmt = $db->query('SELECT email, category, title, description FROM ad');
+    $values = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    echo  $e->getMessage();
 }
-
-
-$client = getClient();
-
-
-$service = new Sheets($client);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $category = $_POST['category'];
-    $title = $_POST['title'];
-    $text = $_POST['text'];
-
-
-    $values = [
-        [$email, $category, $title, $text]
-    ];
-
-
-    $spreadsheetId = '12tjKabprR0E6_NlX6KMySLpHbWQfwBt-dkftdEfjIlk';
-    $range = 'qwe!A1:D1';
-
-
-    $requestBody = new Google_Service_Sheets_ValueRange([
-        'values' => $values
-    ]);
-
-    $response = $service->spreadsheets_values->append($spreadsheetId, $range, $requestBody, [
-        'valueInputOption' => 'RAW'
-    ]);
-}
-
-$spreadsheetId = '12tjKabprR0E6_NlX6KMySLpHbWQfwBt-dkftdEfjIlk';
-$range = 'qwe!A:D';
-$response = $service->spreadsheets_values->get($spreadsheetId, $range);
-$values = $response->getValues();
 
 ?>
 
@@ -100,10 +95,10 @@ $values = $response->getValues();
         </tr>
         <?php foreach ($values as $row): ?>
             <tr>
-                <td><?= $row[0] ?></td>
-                <td><?= $row[1] ?></td>
-                <td><?= $row[2] ?></td>
-                <td><?= $row[3] ?></td>
+                <td><?= $row['email'] ?></td>
+                <td><?= $row['category'] ?></td>
+                <td><?= $row['title'] ?></td>
+                <td><?= $row['description'] ?></td>
             </tr>
         <?php endforeach ?>
     </table>
