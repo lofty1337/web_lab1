@@ -1,8 +1,6 @@
 <?php
-require_once 'vendor/autoload.php';
 
-use Google\Client;
-use Google\Service\Sheets;
+require_once 'vendor/autoload.php';
 
 session_start();
 
@@ -15,21 +13,24 @@ $password = 'helloworld';
 try {
     // Создание подключения к базе данных
     $db = new PDO("mysql:host=$host;dbname=$dbName", $username, $password);
+} catch (PDOException $e) {
+    echo  $e->getMessage();
+    exit();
+}
 
-    function getClient()
-    {
-        $client = new Client();
-        $client->setApplicationName('tablici');
-        $client->setScopes([Sheets::SPREADSHEETS]);
-        $client->setAuthConfig('credentials.json');
-        $client->setAccessType('offline');
+function getClient()
+{
+    $client = new Client();
+    $client->setApplicationName('tablici');
+    $client->setScopes([Sheets::SPREADSHEETS]);
+    $client->setAuthConfig('credentials.json');
+    $client->setAccessType('offline');
 
-        return $client;
-    }
+    return $client;
+}
 
-    $client = getClient();
-    $service = new Sheets($client);
-
+function addAnnouncement($db)
+{
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $category = $_POST['category'];
@@ -40,14 +41,21 @@ try {
         $stmt = $db->prepare('INSERT INTO ad (email, category, title, description) VALUES (?, ?, ?, ?)');
         $stmt->execute([$email, $category, $title, $text]);
     }
+}
 
+function getAnnouncements($db)
+{
     // Получение объявлений из базы данных
     $stmt = $db->query('SELECT email, category, title, description FROM ad');
     $values = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-} catch (PDOException $e) {
-    echo  $e->getMessage();
+    return $values;
 }
+
+$client = getClient();
+$service = new Sheets($client);
+
+addAnnouncement($db);
+$values = getAnnouncements($db);
 
 ?>
 
